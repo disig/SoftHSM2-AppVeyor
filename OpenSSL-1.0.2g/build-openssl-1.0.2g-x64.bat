@@ -31,6 +31,7 @@ nmake /f ms\nt.mak test || goto :error
 nmake /f ms\nt.mak install || goto :error
 
 copy %TARGETDIR%\src\openssl-1.0.2g-x64\out32\openssl.pdb %TARGETDIR%\bin\openssl-1.0.2g-x64\lib\openssl.pdb || goto :error
+copy %TARGETDIR%\src\openssl-1.0.2g-x64\tmp32\lib.pdb %TARGETDIR%\bin\openssl-1.0.2g-x64\lib\lib.pdb || goto :error
 
 "C:\Program Files\7-Zip\7z" a -tzip %CD%\openssl-1.0.2g-x64.zip %TARGETDIR%\bin\openssl-1.0.2g-x64 || goto :error
 
