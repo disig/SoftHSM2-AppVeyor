@@ -15,6 +15,9 @@ mkdir %TARGETDIR%\bin\
 rmdir /S /Q %TARGETDIR%\src\openssl-1.0.2g-x64
 rmdir /S /Q %TARGETDIR%\bin\openssl-1.0.2g-x64
 
+@rem Delete previous build
+del %CD%\openssl-1.0.2g-x64.zip
+
 @rem Extract source code archive
 "C:\Program Files\7-Zip\7z" x openssl-1.0.2g.tar.gz || goto :error
 "C:\Program Files\7-Zip\7z" x openssl-1.0.2g.tar || goto :error
@@ -30,7 +33,6 @@ nmake /f ms\nt.mak || goto :error
 nmake /f ms\nt.mak test || goto :error
 nmake /f ms\nt.mak install || goto :error
 
-copy %TARGETDIR%\src\openssl-1.0.2g-x64\out32\openssl.pdb %TARGETDIR%\bin\openssl-1.0.2g-x64\lib\openssl.pdb || goto :error
 copy %TARGETDIR%\src\openssl-1.0.2g-x64\tmp32\lib.pdb %TARGETDIR%\bin\openssl-1.0.2g-x64\lib\lib.pdb || goto :error
 
 "C:\Program Files\7-Zip\7z" a -tzip %CD%\openssl-1.0.2g-x64.zip %TARGETDIR%\bin\openssl-1.0.2g-x64 || goto :error
