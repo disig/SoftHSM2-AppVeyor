@@ -7,7 +7,7 @@ set TARGETDIR=%CD%\build
 call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat"
 @echo on
 
-@rem create build directories
+@rem Create build directories
 mkdir %TARGETDIR%\src\
 mkdir %TARGETDIR%\bin\
 
@@ -15,7 +15,7 @@ mkdir %TARGETDIR%\bin\
 rmdir /S /Q %TARGETDIR%\src\botan-1.11.32-x86
 rmdir /S /Q %TARGETDIR%\bin\botan-1.11.32-x86
 
-@rem create output directory for binaries
+@rem Create output directory for binaries
 mkdir %TARGETDIR%\bin\botan-1.11.32-x86
 
 @rem Delete previous build
@@ -39,11 +39,10 @@ python configure.py --cc=msvc --cpu=x86 --prefix=%TARGETDIR%\bin\botan-1.11.32-x
 nmake || goto :error
 botan-test || goto :error
 
-@rem gather output
+@rem Gather output
 mkdir %TARGETDIR%\bin\botan-1.11.32-x86\bin\ || goto :error
 mkdir %TARGETDIR%\bin\botan-1.11.32-x86\lib\ || goto :error
 mkdir %TARGETDIR%\bin\botan-1.11.32-x86\include\ || goto :error
-
 copy botan-cli.exe %TARGETDIR%\bin\botan-1.11.32-x86\bin\ || goto :error
 copy botan.dll %TARGETDIR%\bin\botan-1.11.32-x86\bin\ || goto :error
 copy botan.lib %TARGETDIR%\bin\botan-1.11.32-x86\lib\ || goto :error
