@@ -1,4 +1,4 @@
-@setlocal
+setlocal
 
 set CD=%cd%
 set TARGETDIR=%CD%\build
@@ -7,7 +7,7 @@ set TARGETDIR=%CD%\build
 call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64
 @echo on
 
-@rem create build directories
+@rem Create build directories
 mkdir %TARGETDIR%\src\
 mkdir %TARGETDIR%\bin\
 
@@ -15,7 +15,7 @@ mkdir %TARGETDIR%\bin\
 rmdir /S /Q %TARGETDIR%\src\botan-1.10.13-x64
 rmdir /S /Q %TARGETDIR%\bin\botan-1.10.13-x64
 
-@rem create output directory because nmake install dows not do it
+@rem Create output directory for binaries
 mkdir %TARGETDIR%\bin\botan-1.10.13-x64
 
 @rem Delete previous build
@@ -44,10 +44,10 @@ nmake install || goto :error
 "C:\Program Files\7-Zip\7z" a -tzip %CD%\botan-1.10.13-x64.zip %TARGETDIR%\bin\botan-1.10.13-x64 || goto :error
 
 @echo *** BUILD SUCCESSFUL ***
-@endlocal
+endlocal
 @exit /b 0
 
 :error
 @echo *** BUILD FAILED ***
-@endlocal
+endlocal
 @exit /b 1

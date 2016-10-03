@@ -15,7 +15,7 @@ mkdir %TARGETDIR%\bin\
 rmdir /S /Q %TARGETDIR%\src\botan-1.10.13-x86
 rmdir /S /Q %TARGETDIR%\bin\botan-1.10.13-x86
 
-@rem create output directory because nmake install dows not do it
+@rem Create output directory for binaries
 mkdir %TARGETDIR%\bin\botan-1.10.13-x86
 
 @rem Delete previous build
