@@ -7,7 +7,7 @@ set TARGETDIR=%CD%\build
 call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat"
 @echo on
 
-@rem create build directories
+@rem Create build directories
 mkdir %TARGETDIR%\src\
 mkdir %TARGETDIR%\bin\
 
