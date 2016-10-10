@@ -1,4 +1,4 @@
-@setlocal
+setlocal
 
 set CD=%cd%
 set TARGETDIR=%CD%\build
@@ -7,7 +7,7 @@ set TARGETDIR=%CD%\build
 call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64
 @echo on
 
-@rem create build directories
+@rem Create build directories
 mkdir %TARGETDIR%\src\
 mkdir %TARGETDIR%\bin\
 
@@ -38,10 +38,10 @@ copy %TARGETDIR%\src\openssl-1.0.2j-x64\tmp32\lib.pdb %TARGETDIR%\bin\openssl-1.
 "C:\Program Files\7-Zip\7z" a -tzip %CD%\openssl-1.0.2j-x64.zip %TARGETDIR%\bin\openssl-1.0.2j-x64 || goto :error
 
 @echo *** BUILD SUCCESSFUL ***
-@endlocal
+endlocal
 @exit /b 0
 
 :error
 @echo *** BUILD FAILED ***
-@endlocal
+endlocal
 @exit /b 1
